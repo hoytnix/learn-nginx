@@ -1,7 +1,18 @@
 # Nginx
 
+* agent.conf
 * geo.conf
 
+
+## agent.conf
+
+Blocks requests based on user agents.
+
+    $agent_allow
+    @in:  $http_user_agent [user_agent]
+    @out: yes / no
+
+    @desc: firewalls requests based on user agent
 
 ## geo.conf
 
