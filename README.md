@@ -2,6 +2,7 @@
 
 * agent.conf
 * geo.conf
+* referral.conf
 
 
 ## agent.conf
@@ -23,3 +24,13 @@ Blocks countries based on IP using Cloudflare.
     @out: yes / no
 
     @desc: firewalls countries based on IP
+
+## referral.conf
+
+Blocks requests based on referral.
+
+    $refer_allow
+    @in:  $http_referer [referer]
+    @out: yes / no
+
+    @desc: firewalls requests based on referer
