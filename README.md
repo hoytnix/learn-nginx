@@ -1,8 +1,10 @@
 # Nginx
 
 * agent.conf
+* client.conf
 * geo.conf
 * referral.conf
+* uri.conf
 
 
 ## agent.conf
@@ -15,9 +17,17 @@ Blocks requests based on user agents.
 
     @desc: firewalls requests based on user agent
 
+## agent.conf
+
+Blocks requests based on IP.
+
+    $client_allow
+
+    @desc: firewalls requests based on IP
+
 ## geo.conf
 
-Blocks countries based on IP using Cloudflare.
+Whitelists countries based on IP using Cloudflare.
 
     $geo_allow
     @in:  $http_cf_ipcountry [CF-IPCountry]
@@ -34,3 +44,13 @@ Blocks requests based on referral.
     @out: yes / no
 
     @desc: firewalls requests based on referer
+
+## uri.conf
+
+Blocks requests based on URI.
+
+    $uri_allow
+    @in:  $uri [uri]
+    @out: yes / no
+
+    @desc: firewalls requests based on uri
